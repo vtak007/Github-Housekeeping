@@ -29,7 +29,9 @@ PHASE 1 — ASSESS (read-only, make NO changes):
    scanning, push protection, Dependabot alerts, default-branch protection).
 3. If a local path was given: run git status and git fetch, then tell me whether
    local and GitHub are in sync / ahead / behind / diverged, and list any
-   uncommitted changes.
+   uncommitted changes (staged, unstaged, and untracked files — call out each).
+   Also run git worktree list and flag any stale worktrees (pointing at
+   missing/deleted paths, or otherwise no longer needed).
 4. Summarize the gaps versus my template (below) and give me a short plan.
    STOP and wait for my approval before Phase 2.
 
@@ -59,7 +61,8 @@ PHASE 4 — REPORT:
     that needs MY action or a decision.
 15. Also FLAG (don't auto-fix) any of: secrets that look already-committed in
     history, default branch not named "main", repo looks stale/abandoned
-    (suggest archiving), or a wrong/confusing repo name.
+    (suggest archiving), wrong/confusing repo name, stale git worktrees, or
+    any leftover uncommitted items.
 
 MY HOUSE TEMPLATE (the target state for every repo):
 - GitHub is in sync with my local clone
